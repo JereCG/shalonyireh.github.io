@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Palatino Linotype', serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #62a35f;
+    color:#d6d6d6;
+}
+
+header .hamburger {
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+}
+
+header .hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #11471c;
+    margin: 5px;
+}
+
+header #toggle-menu {
+    position: absolute;
+    left: -100px;
+}
+
+#toggle-menu:checked ~ nav {
+    transform: translateX(0%);
+}
+
+header nav {
+    position: absolute;
+    top:52px;
+    left: 0px;
+    width: 90vw;
+    height: auto;
+    background-color: #11471c;
+    box-shadow: 0px 0px 10px #000000;
+    z-index: 100;
+    transform: translateX( -100%);
+}
+
+header nav ul {
+    padding:0px;
+    margin:0px;
+    list-style: none;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    color: #d6d6d6;
+    box-shadow: 0px 0px 5px #62a35f;
+    transition: background-color 1s linear, color 1s linear;
+}
+
+header nav ul li a:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+header img{
+    width: 75px;
+    height: 75px;
+}
+
+button {
+    background-color: #8bc34a;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #689f38;
+}
+
+main {
+    background-image: url('imgSource/imagen3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 15% auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    max-width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#prevMonthBtn,
+#nextMonthBtn {
+    background-color: #8bc34a;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#prevMonthBtn:hover,
+#nextMonthBtn:hover {
+    background-color: #689f38;
+}
+
+.day {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.event {
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #62a35f;
+    color: #d6d6d6;
+    display: flex;
+    border: 1px solid #31522f;
+    padding: 0.5rem;
+    justify-content: space-around;
+}
+
+footer section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column; 
+    align-items: center;
+    margin: 0;
+}
+
+@media (min-width: 1060px) {
+    header {
+        border: solid #31522f 1px;
+    }
+
+    header .hamburger {
+        display: none;
+    }
+
+    header section {
+        width:auto;
+        text-align: left;
+    }
+    header nav {
+        position: relative;
+        top:auto;
+        left:auto;
+        width: auto;
+        height: auto;
+        box-shadow: none;
+        transform: translateX(0%);
+        background-color: transparent;
+    }
+
+    header nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    header nav ul li a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+    }
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .day {
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 720px) {
+
+    button {
+        background-color: #8bc34a;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    #calendar {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    .day {
+        max-width: 100%;
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .main-content {
+        max-height: 100%;
+        margin: 25% auto;
+    }
+}
